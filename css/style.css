@@ -1,65 +1,199 @@
 * {
     margin: 0;
-    padding: 0; }
-/*HEADER*/
-.titulo_pagina{
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
+    padding: 0;    
+}
+body{
+    background-image: url(../img/Background.jpg);
+    background-repeat:no-repeat; 
+    background-position: 75%;
+    background-size: 300%;
+    backdrop-filter: blur(4px);
+}
+/*!------------------------HEADER-------------------------------*/
+
+
+.container-fluid a{
+    font-size: 25px;
+    color:white; 
+    margin: 30px;     
+}
+.navbar-brand{
+    border: solid white 1px;
+    padding: 4px;
+    border-radius: 5px;
 }
 
+.nav-item a{    
+    font-size: 25px;  
+}
+.ayuda-transition{
+    color:white;
+}
+.ayuda-transition:hover{
+    color: black;
+}
+
+
+
+/*!---------------------MAIN----------------------------*/
 .hero{
-    background-color: grey;
+    background-color:transparent;
     height: 30vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.footer{
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    color: white;
-}
-.productos{
-    padding: 10px;
+.sectionmain{
     height: 70vh;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+/**-------------------Boostrapdropdown------------------*/
+.boostrapdropdown{
+    display: flex;
     justify-content: space-around;
-    background-image: url(../img/fondo.jpg);
-    background-repeat: no-repeat;
-    background-position: 100%;
-    background-size: 100%;
+    padding: 10px;
+}
+
+.boton-bebida{
+    height: 50px;
+    width: 120px;   
+}
+
+
+
+/**-------------------TARJETAS PRODUCTOS----------*/
+
+.carrito-compras{            
+    
+    right:50px;
+    bottom: 350px;    
+}
+
+
+
+
+.productos{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
 }
 
 .productos div{
+    flex-shrink: 0;
+    margin:0;
     width: 165px;
     height: 315px;
     border: solid 1px black;
 }
-.productos div h4{
-    background-color: grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;       
-    height: 30px;
-}
-.productos div img{
-    width: 164px;
-    height: 212px;
-}
-.productos div a{
-    background-color: grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 69px;
+.img-carrusel{
+    position: absolute;
 }
 
-footer{
-    background-color: black;
-    height: 20vh;
+.img-carrusel img{
+    height: 190px;
+    width: 163px;
+}
+.img-carrusel h5{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.801);
+    align-items: center;
+    text-align: center;
+    color: white;
+    height: 87px;
+    margin: 0;
+}
+.img-carrusel button{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(53, 75, 175, 0.801);
+    color: white;
+    border: none;
+    border-radius: 0% !important;
+}
+.sectionmain{
+    padding: 0;
+}
+/*!-------------------------FOOTER------------------------------------*/
+
+.footer{
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: 300px;        
+}
+
+
+.grid-footer1{
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+}
+.grid-footer1 a{
+    background-color: rgba(255, 255, 255, 0.219);
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    padding: 4px 8px 8px 6px;
+}
+.grid-footer1 a:hover{
+    color: black 
+}
+.imagenfooter{
+    height: 45px;
+    width: 45px;
+}
+.grid-footer2{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid-footer3{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid-footer4{
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.enlacefooter{
+    font-size: large;
+    color: white;
+    text-decoration: none;
+}
+.copyright{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
