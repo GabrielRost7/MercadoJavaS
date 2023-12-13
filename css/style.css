@@ -7,8 +7,9 @@ body{
     background-repeat:no-repeat; 
     background-position: 75%;
     background-size: 300%;
-    backdrop-filter: blur(4px);
+    /*backdrop-filter: blur(4px);*/
 }
+
 /*!------------------------HEADER-------------------------------*/
 
 
@@ -66,12 +67,49 @@ body{
 
 /**-------------------TARJETAS PRODUCTOS----------*/
 
-.carrito-compras{            
+.carrito-compras{       
+    position: fixed ;
+    right: 50px ;
+    bottom: 750px ;
+        
+}
+#carrito-container {
+    display: none;
+    position: fixed;
+    right: 5%;
+    bottom: 50%;
+    transform: translate(-30%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    max-height: 400px;
+    width: 100%;
     
-    right:50px;
-    bottom: 350px;    
+}
+#carrito-container h3 {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
+#carrito-container p {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#carrito-container hr {
+    margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #f50000;
+}
+
+#carrito-container p:last-child {
+    font-weight: bold;
+    color: #000000; 
+}
 
 
 
