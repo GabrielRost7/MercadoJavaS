@@ -1,9 +1,7 @@
 function mostrarCarritoEnHTML() {
     const carritoContainer = document.getElementById('carrito-container');
     const carritoHTML = [];
-
     carritoHTML.push('<h3>Carrito de Compras</h3>');
-
     carritoCompras.forEach(producto => {
         carritoHTML.push(
             `<p>
@@ -14,21 +12,16 @@ function mostrarCarritoEnHTML() {
             </p>`
         );
     });
-
     carritoHTML.push('<hr>');
-    carritoHTML.push(`<p>Total: $${precioTotal}</p>`);
-
-    
+    carritoHTML.push(`<p>Total: $${precioTotal}</p>`);   
     if (carritoCompras.length > 0) {
         carritoHTML.push('<button class="comprar-btn" onclick="realizarCompra()">Comprar</button>');
     }
-
     carritoContainer.innerHTML = carritoHTML.join('');
 }
 
-
-
 function mostrarCarritoEnHTMLEnCompra(carrito, total) {
+    
     const carritoContainer = document.getElementById('carrito-container-en-compra');
     const carritoHTML = [];
 
@@ -49,7 +42,15 @@ function mostrarCarritoEnHTMLEnCompra(carrito, total) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Otras operaciones
-    mostrarCarritoEnHTMLEnCompra(carritoCompras, precioTotal);
-});
+    const carritoContainerEnCompra = document.getElementById('carrito-container-en-compra');
+    if (carritoContainerEnCompra) {
+        
+        const carritoData = sessionStorage.getItem('carritoCompras');
+        const total = sessionStorage.getItem('precioTotal');
 
+        if (carritoData && total) {
+            const carrito = JSON.parse(carritoData);
+            mostrarCarritoEnHTMLEnCompra(carrito, total);
+        }
+    }
+});
