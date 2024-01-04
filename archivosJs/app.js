@@ -1,9 +1,11 @@
 let carritoCompras = [];
 let precioTotal = 0;
+let accederPermiso = sessionStorage.getItem('accederPermiso') === 'true';
 
 document.addEventListener('DOMContentLoaded', () => {
     bucleCarrito();
     displayCarrito();
+    
     const carritoContainerEnCompra = document.getElementById('carrito-container-en-compra');
     if (carritoContainerEnCompra) {
         const comprarBtn = document.querySelector('.comprar-btn');
@@ -28,6 +30,10 @@ function agregarAlCarrito(productoId) {
     mostrarCarritoEnHTML();
     mostrarCarritoEnConsola();
 }
+
+window.onload = () => {
+    displayCarrito();
+};
 
 function quitarDelCarrito(productoId) {
     const productoEnCarrito = carritoCompras.find(item => item.id === productoId);
@@ -74,31 +80,74 @@ function bucleCarrito() {
 }
 
 function displayCarrito() {
-    const carritoContainer = document.getElementById('carrito-container');   
+    const carritoContainer = document.getElementById('carrito-container');     
     if (carritoContainer) {
         if (carritoCompras.length > 0) {
-            carritoContainer.style.display = (carritoContainer.style.display === 'none' || carritoContainer.style.display === '') ? 'block' : 'none';
+            
+            carritoContainer.style.display = (carritoContainer.style.display === 'none' || carritoContainer.style.display === '') ? 'block' : 'none' ;
+            
             const comprarBtn = document.querySelector('.comprar-btn');
             if (comprarBtn) {
                 comprarBtn.style.display = 'block';
+                
             }
         } else {
             carritoContainer.style.display = 'none';
-        }
-    }   
+            Swal.fire({
+                title: "Su carrito de compras está vacío",                
+                showConfirmButton: true,                      
+                confirmButtonText: 'Continuar',
+                position: 'center',
+            })
+        }   
+    }
 }
 
-window.onload = () => {
-    displayCarrito();
-};
-
-function realizarCompra() {    
-    sessionStorage.setItem('carritoCompras', JSON.stringify(carritoCompras));
-    sessionStorage.setItem('precioTotal', precioTotal);
-    carritoCompras = [];
-    precioTotal = 0;
-    mostrarCarritoEnHTML();       
-    window.location.href = '../pages/compra.html';            
+function realizarCompra() {
+    console.log(accederPermiso);   
+    if(accederPermiso==true){         
+        const carritoContainer = document.getElementById('carrito-container');
+        carritoContainer.style.display='none'; 
+        Swal.fire({
+            title: "Gracias por comprar en el Mercadito de Alcohol!",
+            showCancelButton:true,
+            showConfirmButton: true,
+            cancelButtonText:'Cancelar',       
+            confirmButtonText: 'Continuar con la compra',
+            position: 'center',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                sessionStorage.setItem('carritoCompras', JSON.stringify(carritoCompras));
+                sessionStorage.setItem('precioTotal', precioTotal);
+                carritoCompras = [];
+                precioTotal = 0;
+                mostrarCarritoEnHTML();
+                window.location.href = '../pages/compra.html';
+            }
+            if (result.isDismissed){
+                Swal.fire({
+                    title:"Su carrito de compras fue borrado!",
+                    showConfirmButton:true,
+                    confirmButtonText:'Continuar',                
+                });
+                carritoCompras=[];
+                precioTotal=0;                
+            }
+        });
+    }else{
+        const carritoContainer = document.getElementById('carrito-container');
+        carritoContainer.style.display = 'none';
+        Swal.fire({
+            title: "Lo siento! Debes loguearte para realizar una compra. ¡En nuestra página principal puedes hacerlo!",
+            showConfirmButton: true,
+            confirmButtonText: 'Página principal',
+            position: 'center',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '../index.html';
+            }
+        });
+    }    
 }
 
 document.addEventListener('DOMContentLoaded', () => {

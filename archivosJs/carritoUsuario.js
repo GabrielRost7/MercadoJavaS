@@ -24,9 +24,7 @@ function mostrarCarritoEnHTMLEnCompra(carrito, total) {
     
     const carritoContainer = document.getElementById('carrito-container-en-compra');
     const carritoHTML = [];
-
     carritoHTML.push('<h3>Carrito de Compras</h3>');
-
     carrito.forEach(producto => {
         carritoHTML.push(
             `<p>
@@ -34,10 +32,8 @@ function mostrarCarritoEnHTMLEnCompra(carrito, total) {
             </p>`
         );
     });
-
     carritoHTML.push('<hr>');
     carritoHTML.push(`<p>Total: $${total}</p>`);
-
     carritoContainer.innerHTML = carritoHTML.join('');
 }
 
@@ -47,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const carritoData = sessionStorage.getItem('carritoCompras');
         const total = sessionStorage.getItem('precioTotal');
-
         if (carritoData && total) {
             const carrito = JSON.parse(carritoData);
             mostrarCarritoEnHTMLEnCompra(carrito, total);

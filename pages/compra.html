@@ -62,7 +62,8 @@
                     <div class="grid-compra1">
                         <label for="correoelec">Correo Electrónico:</label>
                         <input type="email" name="correoelec" id="correoelec">
-                    </div>           
+                    </div>
+                            
                     <div class="grid-compra2">
                         <label for="provincia">Provincia:</label>
                         <select name="provinciaenvio" id="provinciaenvio">
@@ -170,7 +171,7 @@
             </section>
             <section>
                 <div id="lista-precios-container" class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-success boton-compra">Realizar compra</button>
+                    <button id="verificarCorreo" type="button" class="btn btn-success boton-compra">Realizar compra</button>
                 </div>
             </section>
         </form>
@@ -215,9 +216,10 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../productos.js"></script> 
-    <script src="../carritoUsuario.js"></script>
-    <script src="../app.js"></script>
+    <script src="../archivosJs/api.js"></script>
+    <script src="../archivosJs/productos.js"></script> 
+    <script src="../archivosJs/carritoUsuario.js"></script>
+    <script src="../archivosJs/app.js"></script>
 
    
 

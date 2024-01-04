@@ -1,4 +1,3 @@
-
 const productos = [
     /* ID 1-20 VODKA- 21-40 VINOS- 41-60 CERVEZA*/
     { id: 1, marca: 'Smirnoff', tipo: 'Común', precio: 3600, },
@@ -44,16 +43,13 @@ const productos = [
     { id: 45, marca: 'Patagonia', tipo: 'Hoppy Larger', precio: 800 },
     { id: 46, marca: 'Patagonia', tipo: 'Sendero Sur', precio: 1200 },
 
-
     { id: 47, marca: 'Quilmes', tipo: 'Común', precio: 1100 },
     { id: 48, marca: 'Quilmes', tipo: 'Stout', precio: 900 },
     { id: 49, marca: 'Quilmes', tipo: '0 Alcohol', precio: 650 },
 
-
     { id: 50, marca: 'Andes', tipo: 'Rubia', precio: 850 },
     { id: 51, marca: 'Andes', tipo: 'Roja', precio: 1000 },
     { id: 52, marca: 'Andes', tipo: 'Ipa', precio: 1100 },
-
 
     { id: 53, marca: 'Imperial', tipo: 'Larger', precio: 1300 },
     { id: 54, marca: 'Imperial', tipo: 'Golden', precio: 1100 },
