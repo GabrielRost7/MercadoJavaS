@@ -22,15 +22,16 @@ async function verificarCorreo() {
         try {
             const response = await fetch(url, options);
             const result = await response.json();        
-            if (result.valid === false) {
-                
+            if (result.valid === false) {                
+	            console.log(result);
                 Swal.fire({
                     title: "La dirección de correo electrónico es incorrecta. Por favor, vuelve a intentar con otra.",
                     showConfirmButton: true,
                     confirmButtonText: 'Reintentar',
                     position: 'center',
                 });
-            } else {
+            } else {               
+	            console.log(result);
                 Swal.fire({
                     title: "Gracias por comprar, la factura llegará a su mail.",
                     showConfirmButton: true,
@@ -41,7 +42,7 @@ async function verificarCorreo() {
         } catch (error) {
             console.error(error);
         }
-    } else {
+    } else {       	    
         Swal.fire({
             title: "Por favor, ingrese un correo electrónico válido!",
             showConfirmButton: true,
